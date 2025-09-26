@@ -147,3 +147,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'noreply.kaps@gmail.com'           # Your actual Gmail
 EMAIL_HOST_PASSWORD = 'hlavxgvryiwmfpee'         # The 16-letter app password you generated (no spaces)
 DEFAULT_FROM_EMAIL = 'noreply.kaps@gmail.com'
+
