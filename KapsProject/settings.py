@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 
@@ -11,8 +10,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = 'login'
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,7 +39,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-
 LOGIN_URL = '/login/'
 
 ROOT_URLCONF = 'KapsProject.urls'
@@ -65,14 +61,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'KapsProject.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -83,9 +77,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -102,36 +93,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-
+# ---- STATIC AND MEDIA FILES FOR PYTHONANYWHERE DEPLOYMENT ----
 
 STATIC_URL = '/static/'
-
 MEDIA_URL = '/media/'
 
 if DEBUG:
-
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
 else:
+    STATIC_ROOT = '/home/azifali/Kaps_project/static'
 
-      STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = '/home/azifali/Kaps/media'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
+# --------------------------------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -144,7 +123,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'noreply.kaps@gmail.com'           # Your actual Gmail
-EMAIL_HOST_PASSWORD = 'hlavxgvryiwmfpee'         # The 16-letter app password you generated (no spaces)
+EMAIL_HOST_USER = 'noreply.kaps@gmail.com'
+EMAIL_HOST_PASSWORD = 'hlavxgvryiwmfpee'
 DEFAULT_FROM_EMAIL = 'noreply.kaps@gmail.com'
-
