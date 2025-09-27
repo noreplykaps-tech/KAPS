@@ -79,12 +79,12 @@ def user_login(request):
             'otp': otp
         }
 
-        # # WhatsApp OTP sending 
-        # try:
-        #     send_gupshup_otp(mobile, otp)
-        # except Exception as e:
-        #     print("WhatsApp OTP send failed:", e)
-        #     messages.warning(request, "WhatsApp OTP could not be sent. Please use Email OTP.")
+        # WhatsApp OTP sending 
+        try:
+            send_gupshup_otp(mobile, otp)
+        except Exception as e:
+            print("WhatsApp OTP send failed:", e)
+            messages.warning(request, "WhatsApp OTP could not be sent. Please use Email OTP.")
 
         # Email OTP sending 
         try:
