@@ -459,7 +459,14 @@ def filter(request):
 @login_required
 def test_drive(request,id):
     cars = Cars.objects.get(id=id)
-    user_obj = UserLogin.objects.get(email=request.user.email)
+    user_obj, created = UserLogin.objects.get_or_create(
+        email=request.user.email,
+        defaults={
+            'name': request.user.get_full_name() or request.user.username,
+            'mobile': ''
+        }
+    )
+
     if not Test_drive.objects.filter(car_data=cars,user_data =user_obj).exists():
         test_drive_obj = Test_drive(user_data=user_obj,car_data=cars)
         test_drive_obj.save()
@@ -475,7 +482,14 @@ def test_drive(request,id):
 @login_required
 def book_now(request,id):
     cars = Cars.objects.get(id=id)
-    user_obj = UserLogin.objects.get(email=request.user.email)
+    user_obj, created = UserLogin.objects.get_or_create(
+        email=request.user.email,
+        defaults={
+            'name': request.user.get_full_name() or request.user.username,
+            'mobile': ''
+        }
+    )
+
     if not Book_now.objects.filter(car_data=cars,user_data =user_obj).exists():
         test_drive_obj = Book_now(user_data=user_obj,car_data=cars)
         test_drive_obj.save()
